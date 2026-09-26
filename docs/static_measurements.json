@@ -1,0 +1,304 @@
+{
+  "_comment": "Static footprint measured from four open-source scientific agents at the pinned revisions below. Reproduce with: python measure_agents.py --clone. Values marked source 'lfs-pointer' are read from Git-LFS pointer 'size' fields, so they are verifiable without downloading the ~900 MB payload.",
+  "_paper": "Sec. III-A (Mapping real agents onto the taxonomy), Table II (tab:frag), Table IV (tab:static)",
+  "pins": {
+    "foam-agent": {
+      "url": "https://github.com/csml-rpi/Foam-Agent",
+      "ref": "v2.0.0",
+      "commit": "d300fd2bef8fcad046cf0c22ef607fe07718400f"
+    },
+    "a2mc": {
+      "url": "https://github.com/jingtao-lbl/A2MC-elm",
+      "ref": "main",
+      "commit": "a66ff4cc4f2904a4b5ac305daaea8339d7266866"
+    },
+    "open-ai-co-scientist": {
+      "url": "https://github.com/llnl/open-ai-co-scientist",
+      "ref": "main",
+      "commit": "c8342c0e28474d134f80caa6b9668470ebf55258"
+    },
+    "scilink": {
+      "url": "https://pypi.org/project/scilink/0.0.60/",
+      "ref": "0.0.60",
+      "sdist": "scilink-0.0.60.tar.gz",
+      "sha256": "37b666443104aff4dc6f6a9e6c3e481dcdddb9251b27b1cb22f63609e0af429b",
+      "note": "0.0.60 has no git tag; the measured artifact is the PyPI sdist (uploaded 2026-08-11)."
+    },
+    "scilink-git": {
+      "url": "https://github.com/ziatdinovmax/SciLink",
+      "ref": "main",
+      "commit": "59279854a164e0b89bfb6fdaedce9297b126bfdc",
+      "note": "examples/ are not shipped in any sdist; the spectrum and datacube are measured from the repo at this commit."
+    }
+  },
+  "measurements": [
+    {
+      "agent": "foam-agent",
+      "key": "tutorial_cases",
+      "value": 248,
+      "unit": "cases",
+      "paper": "248 OpenFOAM tutorial cases",
+      "source": "count of <case_begin> in database/foundation-v10/raw/openfoam_tutorials_structure.txt"
+    },
+    {
+      "agent": "foam-agent",
+      "key": "vector_store_bytes",
+      "value": 313635093,
+      "unit": "B",
+      "paper": "314MB of vector-database state",
+      "source": "lfs-pointer sum over database/foundation-v10/faiss/"
+    },
+    {
+      "agent": "foam-agent",
+      "key": "embedding_dims",
+      "value": [
+        1024,
+        1536,
+        4096
+      ],
+      "unit": "dims",
+      "paper": "three candidate models at 1024, 1536, and 4096 dimensions",
+      "source": "(index.faiss bytes - 45) / (4 * n_docs)"
+    },
+    {
+      "agent": "foam-agent",
+      "key": "max_loop",
+      "value": 25,
+      "unit": "iters",
+      "paper": "re-runs up to 25 times",
+      "source": "src/config.py max_loop"
+    },
+    {
+      "agent": "foam-agent",
+      "key": "input_mesh_bytes",
+      "value": 64080763,
+      "unit": "B",
+      "paper": "64MB input mesh",
+      "source": "lfs-pointer tandem_wing.msh"
+    },
+    {
+      "agent": "foam-agent",
+      "key": "vector_backend",
+      "value": "faiss",
+      "unit": "",
+      "paper": "FAISS (multi-index)",
+      "source": "imports in src/utils.py"
+    },
+    {
+      "agent": "a2mc",
+      "key": "graph_nodes_min",
+      "value": 1295,
+      "unit": "nodes",
+      "paper": "1295 to 3180 nodes",
+      "source": "len(nodes) in rag/graphs/api-31-0.json"
+    },
+    {
+      "agent": "a2mc",
+      "key": "graph_nodes_max",
+      "value": 3180,
+      "unit": "nodes",
+      "paper": "1295 to 3180 nodes",
+      "source": "len(nodes) in rag/graphs/api-43-1.json"
+    },
+    {
+      "agent": "a2mc",
+      "key": "graph_edges_min",
+      "value": 2197,
+      "unit": "edges",
+      "paper": "2197 to 2798 edges",
+      "source": "len(links) in rag/graphs/api-31-0.json"
+    },
+    {
+      "agent": "a2mc",
+      "key": "graph_edges_max",
+      "value": 2798,
+      "unit": "edges",
+      "paper": "2197 to 2798 edges",
+      "source": "len(links) in rag/graphs/api-43-1.json"
+    },
+    {
+      "agent": "a2mc",
+      "key": "chroma_dir_bytes_min",
+      "value": 20026706,
+      "unit": "B",
+      "paper": "20 to 45MB Chroma store",
+      "source": "sum of rag/chroma_db/api-31-0/"
+    },
+    {
+      "agent": "a2mc",
+      "key": "chroma_dir_bytes_max",
+      "value": 45120430,
+      "unit": "B",
+      "paper": "20 to 45MB Chroma store",
+      "source": "sum of rag/chroma_db/api-43-1/"
+    },
+    {
+      "agent": "a2mc",
+      "key": "data_level0_bytes_min",
+      "value": 3352000,
+      "unit": "B",
+      "paper": "3.35 to 10.4MB data_level0.bin",
+      "source": "rag/chroma_db/api-31-0/*/data_level0.bin"
+    },
+    {
+      "agent": "a2mc",
+      "key": "data_level0_bytes_max",
+      "value": 10372764,
+      "unit": "B",
+      "paper": "3.35 to 10.4MB data_level0.bin",
+      "source": "rag/chroma_db/api-43-1/*/data_level0.bin"
+    },
+    {
+      "agent": "a2mc",
+      "key": "chunks_min",
+      "value": 2581,
+      "unit": "chunks",
+      "paper": "2581 to 6328 chunks",
+      "source": "rag/metadata/api-31-0.json stats.chunk_count"
+    },
+    {
+      "agent": "a2mc",
+      "key": "chunks_max",
+      "value": 6328,
+      "unit": "chunks",
+      "paper": "2581 to 6328 chunks",
+      "source": "rag/metadata/api-43-1.json stats.chunk_count"
+    },
+    {
+      "agent": "a2mc",
+      "key": "embedding_dim",
+      "value": 384,
+      "unit": "dims",
+      "paper": "384 dimensions",
+      "source": "all-MiniLM-L6-v2 in rag/vector_store.py"
+    },
+    {
+      "agent": "a2mc",
+      "key": "discovery_mean_bytes",
+      "value": 940,
+      "unit": "B",
+      "paper": "discoveries at 940B on average",
+      "source": "108152 B / 115 records in use_cases/ELM-FATES_Kougarok/memory/gained_knowledge/discoveries.json"
+    },
+    {
+      "agent": "a2mc",
+      "key": "typed_json_stores",
+      "value": 4,
+      "unit": "files",
+      "paper": "four typed JSON stores",
+      "source": "memory/manager.py"
+    },
+    {
+      "agent": "a2mc",
+      "key": "exec_log_file",
+      "value": "workflow_log.json",
+      "unit": "",
+      "paper": "workflow_log.json",
+      "source": "tools/workflow_status.py"
+    },
+    {
+      "agent": "open-ai-co-scientist",
+      "key": "hypothesis_fields",
+      "value": 10,
+      "unit": "fields",
+      "paper": "ten-field record",
+      "source": "app/models.py Hypothesis.__init__"
+    },
+    {
+      "agent": "open-ai-co-scientist",
+      "key": "worker_agents",
+      "value": 6,
+      "unit": "agents",
+      "paper": "roughly six agents",
+      "source": "class defs in app/agents.py, excluding SupervisorAgent"
+    },
+    {
+      "agent": "open-ai-co-scientist",
+      "key": "run_log_bytes_min",
+      "value": 173093,
+      "unit": "B",
+      "paper": "173 to 297KB run logs",
+      "source": "results/log_2025-02-22_23-07-32.txt"
+    },
+    {
+      "agent": "open-ai-co-scientist",
+      "key": "run_log_bytes_max",
+      "value": 297499,
+      "unit": "B",
+      "paper": "173 to 297KB run logs",
+      "source": "results/log_2025-02-22_23-12-15.txt"
+    },
+    {
+      "agent": "scilink",
+      "key": "skill_count",
+      "value": 41,
+      "unit": "skills",
+      "paper": "41 procedural skills",
+      "source": "*.md bundles under scilink/skills/"
+    },
+    {
+      "agent": "scilink",
+      "key": "skill_bytes_min",
+      "value": 1743,
+      "unit": "B",
+      "paper": "1.7 to 57KB",
+      "source": "optimization/bo_deep_ensemble/bo_deep_ensemble.md"
+    },
+    {
+      "agent": "scilink",
+      "key": "skill_bytes_max",
+      "value": 57462,
+      "unit": "B",
+      "paper": "1.7 to 57KB",
+      "source": "image_analysis/atomic_stem/atomic_stem.md"
+    },
+    {
+      "agent": "scilink",
+      "key": "skill_bytes_median",
+      "value": 7675,
+      "unit": "B",
+      "paper": "7.7kB median",
+      "source": "median over the 41 skill .md files"
+    },
+    {
+      "agent": "scilink",
+      "key": "companion_py_files",
+      "value": 133,
+      "unit": "files",
+      "paper": "133 companion Python files",
+      "source": "all *.py under scilink/skills/ (46 are __init__.py, 42 are zero-byte)"
+    },
+    {
+      "agent": "scilink-git",
+      "key": "spectrum_bytes",
+      "value": 32896,
+      "unit": "B",
+      "paper": "33KB spectrum",
+      "source": "examples/eels_identification_demo/spectrum.npy"
+    },
+    {
+      "agent": "scilink-git",
+      "key": "datacube_bytes",
+      "value": 55651328,
+      "unit": "B",
+      "paper": "55.6MB datacube",
+      "source": "examples/eels_plasmons_demo/datacube.npy"
+    },
+    {
+      "agent": "scilink",
+      "key": "retrieval_backend",
+      "value": "faiss",
+      "unit": "",
+      "paper": "FAISS index",
+      "source": "scilink/knowledge/knowledge_base.py"
+    },
+    {
+      "agent": "scilink",
+      "key": "memory_store_index",
+      "value": "none",
+      "unit": "",
+      "paper": "markdown bundles discovered by a filesystem walk (no database index)",
+      "source": "scilink/skills/loader.py (filesystem walk; the only sqlite3 use is an optional user-supplied COD database in structure_matching/_backends/cod.py)"
+    }
+  ]
+}

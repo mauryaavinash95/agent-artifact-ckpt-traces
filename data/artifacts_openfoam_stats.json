@@ -1,0 +1,20 @@
+{
+ "app": "openfoam",
+ "case": "incompressible",
+ "run": "1",
+ "files_processed": 12,
+ "n_artifacts": 150,
+ "dur_s": 3215.2324709892273,
+ "size_p50": 2157.5,
+ "size_p90": 438084.89999999315,
+ "size_p99": 8158855.53,
+ "size_max": 8159399.0,
+ "total_write_bytes": 69106156,
+ "total_read_bytes": 407080459,
+ "n_write": 1081170,
+ "n_read": 225555,
+ "rw_ratio": 5.890654068502957,
+ "artifact_bytes": 62341824,
+ "write_rate": 336.2649543245492,
+ "artifact_rate": 0.046652925209432726
+}

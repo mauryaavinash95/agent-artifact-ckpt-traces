@@ -1,0 +1,20 @@
+{
+ "app": "gromacs",
+ "case": "3072",
+ "run": "1",
+ "files_processed": 12,
+ "n_artifacts": 1,
+ "dur_s": 1813.1188399791718,
+ "size_p50": 0.0,
+ "size_p90": 0.0,
+ "size_p99": 0.0,
+ "size_max": 0.0,
+ "total_write_bytes": 337385,
+ "total_read_bytes": 718174,
+ "n_write": 7050,
+ "n_read": 21338,
+ "rw_ratio": 2.1286482801547195,
+ "artifact_bytes": 0,
+ "write_rate": 3.888327584793607,
+ "artifact_rate": 0.000551535827630299
+}

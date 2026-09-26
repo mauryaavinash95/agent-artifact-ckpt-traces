@@ -1,0 +1,20 @@
+# Analysis and plotting dependencies.
+#
+# matplotlib is pinned to the 3.10 series on purpose. Figure layout under
+# bbox_inches="tight" is version-sensitive: with matplotlib 3.11 the
+# legend-bearing figures (f2, f6, f10b) come out 15-18% taller and no longer
+# match the published versions. On 3.10.7 every figure except f6 reproduces
+# pixel-for-pixel, and f6 differs only by the intended 940 B record size.
+# Newer matplotlib still produces correct figures, just not identical ones.
+matplotlib>=3.10,<3.11
+seaborn>=0.13,<0.14
+
+numpy>=1.24
+pandas>=2.0
+
+# extract_tracelab.py reads the TraceLab DuckDB build
+duckdb>=0.9
+
+# docs/reference/build_artifact_pool.py reads Nebius parquet shards.
+# Only needed to rebuild data/artifact_pool_sizes.npy, which is already committed.
+pyarrow>=12.0
