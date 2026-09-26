@@ -51,11 +51,11 @@ DEFAULT_MODEL = "llama3-70b"                     # 327,680 B/token = 320 KiB
 | Paper | File | Script | What it shows |
 |---|---|---|---|
 | Fig. 2 | `f3_size_dist` | `analyze_f3.py` | the four states occupy distinct size regimes |
-| Fig. 3 | `f5_regime` | `analyze_regime.py` | two stress axes: bytes/object vs object rate |
+| Fig. 3 | `f12_artifact_io` | `analyze_artio.py` | artifact sizes are heavy-tailed |
 | Fig. 4 | `f8_c0_burstiness` | `analyze_f8.py` | KV arrives in co-timed spikes |
-| Fig. 5 | `f12_artifact_io` | `analyze_artio.py` | artifact sizes are heavy-tailed |
-| Fig. 6 | `f10a_kv_lru` | `analyze_c6_kvreuse.py` | 55% of KV blocks are reusable, LRU captures 34% |
-| Fig. 7 | `f10b_kv_skew` | `analyze_c6_kvreuse.py` | reuse is concentrated in a few hot blocks |
+| Fig. 5 | `f10a_kv_lru` | `analyze_c6_kvreuse.py` | 55% of KV blocks are reusable, LRU captures 34% |
+| Fig. 6 | `f10b_kv_skew` | `analyze_c6_kvreuse.py` | reuse is concentrated in a few hot blocks |
+| Fig. 7 | `f5_regime` | `analyze_regime.py` | two stress axes: bytes/object vs object rate |
 | Fig. 8 | `f11b_cooccurrence_k` | `analyze_c4_sensitivity.py` | states collide even in a single un-composed session |
 | Fig. 9 | `f2_embed_dup` | `analyze_f2.py` | embeddings duplicated per model variant |
 | Fig. 10 | `f6_write_amplification` | `analyze_f6.py` | whole-file-rewrite memory grows O(N^2) |

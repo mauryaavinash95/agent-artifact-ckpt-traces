@@ -6,7 +6,7 @@ Measured pattern (static block, Table II): A2MC memory/store.py and
 open-ai-co-scientist run_store.py both persist the memory store by rewriting the
 ENTIRE store file on every update, and A2MC additionally copies the prior file
 to a .bak backup. We measured the memory-record size at 940 B (A2MC discoveries)
-and the skill unit at a 7.6 KB median (SciLink).
+and the skill unit at a 7.7 KB median (SciLink).
 
 Analytical consequence (this figure): if an agent accumulates records of size s
 by rewriting the whole store on each of N updates, update k writes k*s bytes plus
@@ -50,14 +50,14 @@ def main():
 
     # measured record sizes
     S_REC = 940.0     # A2MC memory record (bytes; 108,152 B / 115 discoveries)
-    S_SKILL = 7600.0  # SciLink skill unit median (bytes)
+    S_SKILL = 7675.0  # SciLink skill unit median (bytes; 41 skills at v0.0.60)
 
     k, phys_r, ideal_r = cumulative(a.updates, S_REC)
     _, phys_s, _ = cumulative(a.updates, S_SKILL)
 
     fig, ax = plt.subplots(figsize=(5, 3))
     ax.plot(k, phys_r, color=cg, lw=2.0, label="rewrite+backup (940 B rec)")
-    ax.plot(k, phys_s, color=cg, lw=2.0, ls="--", label="rewrite+backup (7.6 KB rec)")
+    ax.plot(k, phys_s, color=cg, lw=2.0, ls="--", label="rewrite+backup (7.7 KB rec)")
     ax.plot(k, ideal_r, color="0.35", lw=1.6, ls=":", label="ideal delta/append")
     ax.fill_between(k, ideal_r, phys_r, color=cg, alpha=0.12)
     ax.set_yscale("log")

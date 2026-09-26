@@ -54,14 +54,14 @@ Please cite the originals if you use the derived streams.
 | Paper figure | Script | Input |
 |---|---|---|
 | Fig. 2 `f3_size_dist` | `analyze_f3.py` | `data/coding_swarm.csv`, `data/assistant_locomo.csv`, `data/artifacts_openfoam_sizes.npy` |
-| Fig. 3 `f5_regime` | `analyze_regime.py` | `data/coding_swarm.csv` |
+| Fig. 3 `f12_artifact_io` | `analyze_artio.py` | `data/artifact_pool_sizes.npy` |
 | Fig. 4 `f8_c0_burstiness` | `analyze_f8.py` | `data/reasoning_mooncake.csv` |
-| Fig. 5 `f12_artifact_io` | `analyze_artio.py` | `data/artifact_pool_sizes.npy` |
-| Fig. 6 `f10a_kv_lru` | `analyze_c6_kvreuse.py` | `data/raw/mooncake/toolagent_trace.jsonl` |
-| Fig. 7 `f10b_kv_skew` | `analyze_c6_kvreuse.py` | same |
+| Fig. 5 `f10a_kv_lru` | `analyze_c6_kvreuse.py` | `data/raw/mooncake/toolagent_trace.jsonl` |
+| Fig. 6 `f10b_kv_skew` | `analyze_c6_kvreuse.py` | same |
+| Fig. 7 `f5_regime` | `analyze_regime.py` | `data/coding_swarm.csv` |
 | Fig. 8 `f11b_cooccurrence_k` | `analyze_c4_sensitivity.py` | `data/coding_swarm.csv` |
 | Fig. 9 `f2_embed_dup` | `analyze_f2.py` | measured constants (see `measure_agents.py`) |
-| Fig. 10 `f6_write_amplification` | `analyze_f6.py` | measured constants (940 B record, 7.6 kB skill) |
+| Fig. 10 `f6_write_amplification` | `analyze_f6.py` | measured constants (940 B record, 7.7 kB skill) |
 
 Fig. 1 is a hand-drawn schematic and has no script.
 
