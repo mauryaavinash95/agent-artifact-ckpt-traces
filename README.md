@@ -88,10 +88,9 @@ make extract
 access-gated (Nebius trajectories, the Zenodo HPC I/O traces); the outputs they
 feed are already committed. See `docs/PROVENANCE.md`.
 
-## Honesty notes
+## Important notes
 
-Read `docs/PROVENANCE.md` before quoting anything. Three points a reader should
-not have to discover for themselves:
+Read `docs/PROVENANCE.md` before quoting anything. Three key points:
 
 1. **The 48-session swarm is composed by us**, because no public trace records
    all four states on one clock. The sessions are the **heaviest** in TraceLab
